@@ -1,6 +1,6 @@
-package com.yijawenCoder;
+package com.yijawenCoder.maker;
 
-import com.yijawenCoder.cli.CommandExecutor;
+import com.yijawenCoder.maker.cli.CommandExecutor;
 
 public class Main {
 

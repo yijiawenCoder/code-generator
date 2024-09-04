@@ -1,10 +1,4 @@
-package com.yijawenCoder.generator;
-
-import com.yijawenCoder.model.MainTemplateConfig;
-import freemarker.template.TemplateException;
-
-import java.io.File;
-import java.io.IOException;
+package com.yijawenCoder.maker.generator.file;
 
 
 import freemarker.template.TemplateException;
@@ -15,7 +9,8 @@ import java.io.IOException;
 /**
  * 核心生成器
  */
-public class MainGenerator {
+public class FileGenerator
+{
 
     /**
      * 生成
@@ -32,20 +27,14 @@ public class MainGenerator {
         String inputPath = new File(projectPath, "codeGeneratorDemoProjects/acm-template").getAbsolutePath();
         String outputPath = projectPath;
         // 生成静态文件
-        StaticGenerator.copyFilesByRecursive(inputPath, outputPath);
+        StaticFileGenerator.copyFilesByHutool(inputPath, outputPath);
         // 生成动态文件
-        String inputDynamicFilePath = projectPath + File.separator + "generator-basic/src/main/resources/templates/MainTemplate.java.ftl";
+        String inputDynamicFilePath = projectPath + File.separator + "generator-maker/src/main/resources/templates/MainTemplate.java.ftl";
         String outputDynamicFilePath = outputPath + File.separator + "acm-template/src/com/yupi/acm/MainTemplate.java";
-        DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
+        DynamicFileGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
 
-    public static void main(String[] args) throws TemplateException, IOException {
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
-        mainTemplateConfig.setAuthor("yupi");
-        mainTemplateConfig.setLoop(false);
-        mainTemplateConfig.setOutputText("求和结果：");
-        doGenerate(mainTemplateConfig);
-    }
+
 }
 
 
