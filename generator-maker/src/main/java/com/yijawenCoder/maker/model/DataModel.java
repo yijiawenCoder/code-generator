@@ -2,6 +2,9 @@ package com.yijawenCoder.maker.model;
 
 import lombok.Data;
 
+/**
+ * 动态模板配置
+ */
 @Data
 public class DataModel {
     private String author="yjwenCoder";
